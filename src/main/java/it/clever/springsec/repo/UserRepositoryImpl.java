@@ -24,6 +24,7 @@ import it.clever.springsec.entities.User;
 @Repository(value = "userRepository")
 public class UserRepositoryImpl extends GenericDaoImpl<User> implements UserRepository {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public User findByEmail(String email) {
 		

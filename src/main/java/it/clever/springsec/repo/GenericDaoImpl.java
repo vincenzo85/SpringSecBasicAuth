@@ -28,6 +28,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 
 	private Class<T> type;
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@PostConstruct
 	public void init() {
 
@@ -62,6 +63,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 	/**
 	 * Metodo per la gestione della tipica findAll tramite CriteriaQuery.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findAll() {
 
@@ -74,12 +76,14 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 		 * dalla 2.1) JPQL. Modella ogni possibile clausola per una query JPQL.
 		 * 
 		 */
+		@SuppressWarnings("rawtypes")
 		CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(type);
 
 		/*
 		 * Step 2. Creazione del criteria root per definire la root entity a
 		 * partire dalla quale ha origine la navigazione.
 		 */
+		@SuppressWarnings({ "rawtypes" })
 		Root root = criteriaQuery.from(type);
 
 		criteriaQuery.select(root);

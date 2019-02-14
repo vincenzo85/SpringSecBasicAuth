@@ -15,7 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.csrf.CsrfFilter;
+//import org.springframework.security.web.csrf.CsrfFilter;
 
 @Configuration
 @EnableWebSecurity(debug = true)
@@ -27,6 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	 */
 	private static String REALM = "REST_SEC_REALM";
 	
+	@SuppressWarnings("unused")
 	@Autowired
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 	

@@ -9,14 +9,14 @@
  */
 package it.clever.springsec.repo;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
 import it.clever.springsec.entities.Role;
-import it.clever.springsec.entities.User;
+//import it.clever.springsec.entities.User;
 
 /**
  * @author robgion
