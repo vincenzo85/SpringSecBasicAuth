@@ -34,6 +34,10 @@ public class User {
 	@NotEmpty(message = "*Please provide an email")
 	private String email;
 	@Column(name = "password")
+	// validazione sulla lunghezza... impongo le stesse regole del db
+	// prima di far partire la chiamata al db....
+	// genera eccezione come validetor ecception....
+	
 	@Length(min = 5, message = "*Your password must have at least 5 characters")
 	@NotEmpty(message = "*Please provide your password")
 	@Transient
