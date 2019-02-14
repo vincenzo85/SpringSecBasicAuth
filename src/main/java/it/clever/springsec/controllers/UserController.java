@@ -14,8 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import it.clever.springsec.entities.ResponseMessage;
 import it.clever.springsec.entities.User;
 import it.clever.springsec.services.UserService;
+// classe come un'altra ha solo le notation di spring... funziona in modo "vecchio"
+// è annotata come rest controller.... 
+// il controller semplice rimanda ad una pagina jsp..
+// i rest controller mandano e inviano json...
+
 
 @RestController
 @RequestMapping("/api")
@@ -27,12 +33,19 @@ public class UserController {
 	//-------------------Retrieve All Users--------------------------------------------------------
     
     @RequestMapping(value = "/users/", method = RequestMethod.GET)
-    public ResponseEntity<List<User>> listAllUsers() {
+    //public ResponseEntity<List<User>> listAllUsers() {
+    public ResponseEntity<ResponseMessage> listAllUsers() {
         List<User> users = userService.findAllUsers();
+        
+        ResponseMessage rs = new ResponseMessage();
+        rs.setCode(200);
+        rs.setDescription("OK");
+        rs.setBody(users);
+        
         if(users.isEmpty()){
-            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+            return new ResponseEntity<ResponseMessage>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
-        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+        return new ResponseEntity<ResponseMessage>(rs, HttpStatus.OK);
     }
   
   

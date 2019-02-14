@@ -20,16 +20,28 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  */
 public class CustomServerInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
  
+	
+	
+	// voglio la root config class... che mi abilita i controller....
+	// qui setto tutte le configurazioni iniziali....
+	
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] { WebMvcConfig.class };
     }
   
+    
+    // questo è cm se non esistesse....
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return null;
     }
   
+    
+    // questi sono tutti gli url ... 
+    
+    
+    
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
